@@ -123,7 +123,7 @@ Principal front-end engineer on a multi-tenant SaaS suite for property managemen
 
 ### Locus Meus — Mobile-First Gallery Platform *(2026 – present)*
 **Sole front-end engineer & architect** · React 19 · TypeScript · Vite · Tailwind · Zustand · TanStack Query
-`github.com/orgs/Locus-Meus` *(private — walkthrough available on request)*
+**github.com/Locus-Meus/Locus-Front** · **github.com/Locus-Meus/Locus-Admin-FE** *(source public)*
 
 Self-directed two-application product: a mobile-first installable PWA for end users and a separate admin console, both consuming a Java/Spring backend.
 
