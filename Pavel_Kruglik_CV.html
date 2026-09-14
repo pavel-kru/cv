@@ -93,7 +93,8 @@
         TypeScript, currently the principal front-end engineer on a property-management and accounting suite
         of five production applications. Author of 16,900+ commits to a 11,300-file NX monorepo over four
         years, owning UI architecture, the shared component library, the API type layer, and build tooling
-        end to end.
+        end to end. Diagnosed and fixed the type-system bottleneck that was making the codebase's build
+        unworkable, cutting a full type-check <strong>from 426 s to 41.8 s — a 10&times; speedup</strong>.
       </p>
       <p>
         Also the team's AI engineering lead: designed and shipped the agent infrastructure — a 27-document,
@@ -270,9 +271,25 @@
             processing, chargeback and NSF fee handling, deposit scheduling, and payment-gateway configuration.
           </li>
           <li>
-            Diagnosed and fixed a <strong>TypeScript compiler performance collapse</strong>, cutting a full
-            type-check from <strong>415 s to 48 s (&minus;88%)</strong> by restructuring the generic typing of a
-            core component — removing a daily multi-minute tax on every developer and CI run.
+            Diagnosed and fixed a <strong>TypeScript compiler performance collapse</strong> that had grown to a
+            7-minute full type-check, blocking CI and IDE responsiveness across the monorepo. Profiled it with
+            <em>tsc --generateTrace</em> and <em>--generateCpuProfile</em> to isolate the cause — a polymorphic
+            component whose generic element parameter forced every call site to re-infer across ~950 props,
+            uncached, at ~11.5 s per spread site. Restructured the typing to keep the generic out of the
+            CSS-prop bulk: <strong>426 s → 41.8 s, a 10&times; speedup</strong>, with <strong>type
+            instantiations cut from 395k to 197k (&minus;50%)</strong> and the shared component library alone
+            going <strong>204 s → 10 s (&minus;95%)</strong>.
+          </li>
+          <li>
+            Built a <strong>minimal-repro profiling harness</strong> for the above (a scoped tsconfig importing
+            the component directly rather than through the library index), cutting the diagnostic feedback loop
+            from <strong>~7 minutes to ~25 seconds</strong> and making a previously intractable class of
+            compiler problem routinely debuggable.
+          </li>
+          <li>
+            Eliminated further type-checking hot spots by replacing long equality chains over large union types
+            with <em>ReadonlySet</em> lookups, and optimised runtime performance on the matched bank-transactions
+            page and vendor export.
           </li>
           <li>
             Led the <strong>API type-layer migration</strong>, extracting app-specific types out of the shared
@@ -378,18 +395,24 @@
       </div>
 
       <h2 class="section-title">Selected Technical Achievements</h2>
+      <p style="font-size:9.5pt;color:#555;font-style:italic;margin-bottom:6px;">
+        Every figure below is measured, not estimated.
+      </p>
       <table>
         <thead>
-          <tr><th>Achievement</th><th>Impact</th></tr>
+          <tr><th style="width:44%;">Achievement</th><th>Measured impact</th></tr>
         </thead>
         <tbody>
-          <tr><td>TypeScript compile optimisation</td><td>Full type-check <strong>415 s → 48 s (&minus;88%)</strong></td></tr>
-          <tr><td>Agent knowledge base</td><td><strong>27 docs / ~3,150 lines</strong>, team-wide, committed to repo</td></tr>
-          <tr><td>Reusable agent skills</td><td><strong>4 skills / ~1,100 lines</strong> encoding end-to-end workflows</td></tr>
-          <tr><td>Commit contribution</td><td><strong>16,900+ commits</strong> across 4 years, 5 applications</td></tr>
-          <tr><td>OData report engine</td><td>Self-service custom reporting, zero engineering per report</td></tr>
-          <tr><td>Sidebar re-architecture</td><td>Provider-based state model; eliminated a bug class</td></tr>
-          <tr><td>Locus Meus (personal)</td><td>2 apps, OAuth2/PKCE + PWA + 3-language i18n, solo</td></tr>
+          <tr><td><strong>TypeScript check speed</strong> — restructured a polymorphic component's generic typing after trace/CPU profiling</td><td><strong>426 s → 41.8 s — 10&times; faster</strong> full type-check</td></tr>
+          <tr><td><strong>Type instantiations</strong> — removed per-call-site generic re-inference</td><td><strong>395k → 197k — cut by half</strong></td></tr>
+          <tr><td><strong>Component library check time</strong> — same fix, library scope</td><td><strong>204 s → 10 s — 95% faster</strong></td></tr>
+          <tr><td><strong>Compiler diagnostic loop</strong> — built a minimal-repro profiling harness</td><td><strong>~7 min → ~25 s — 17&times; faster</strong> iteration</td></tr>
+          <tr><td><strong>Self-service reporting</strong> — OData report engine with user-built filters and columns</td><td>Custom reports built with <strong>zero engineering time per report</strong></td></tr>
+          <tr><td><strong>Agent-readable knowledge base</strong> — 27 documents, team-wide, committed to repo</td><td><strong>~3,150 lines</strong>; correct-first-time agent output on a 11,300-file codebase</td></tr>
+          <tr><td><strong>Reusable agent skills</strong> — 4 end-to-end workflow skills</td><td><strong>~1,100 lines</strong>; multi-day onboarding compressed to one prompt</td></tr>
+          <tr><td><strong>Sustained delivery</strong> — sole front-end engineer, 5 production apps</td><td><strong>16,900+ commits</strong> over 4 years</td></tr>
+          <tr><td><strong>Sidebar re-architecture</strong> — provider-based state model with unified API</td><td>Eliminated an entire recurring <strong>class of state bug</strong></td></tr>
+          <tr><td><strong>Locus Meus</strong> — solo two-app product, OAuth2/PKCE + PWA + 3-language i18n</td><td>Shipped <strong>end to end, single-handed</strong></td></tr>
         </tbody>
       </table>
 

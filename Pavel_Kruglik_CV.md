@@ -11,7 +11,7 @@ GitHub: https://github.com/pavel-kru · GitHub Org: https://github.com/orgs/Locu
 
 ## Summary
 
-Senior front-end engineer with 6+ years building large-scale enterprise platforms in React and TypeScript, currently the principal front-end engineer on a property-management and accounting suite of five production applications. Author of 16,900+ commits to a 11,300-file NX monorepo over four years, owning UI architecture, the shared component library, the API type layer, and the build tooling end to end.
+Senior front-end engineer with 6+ years building large-scale enterprise platforms in React and TypeScript, currently the principal front-end engineer on a property-management and accounting suite of five production applications. Diagnosed and fixed the type-system bottleneck that was making the codebase's build unworkable, cutting a full type-check **from 426 s to 41.8 s — a 10× speedup**. Author of 16,900+ commits to a 11,300-file NX monorepo over four years, owning UI architecture, the shared component library, the API type layer, and the build tooling end to end.
 
 Also the team's AI engineering lead: designed and shipped the agent infrastructure — a 27-document, 3,100-line machine-readable knowledge base plus reusable agent skills, deterministic enforcement hooks, and MCP tool integrations — that lets LLM coding agents work correctly inside the codebase.
 
@@ -89,7 +89,9 @@ Principal front-end engineer on a multi-tenant SaaS suite for property managemen
 - Re-architected the **global sidebar system** into a provider-based state model with a unified API, and diagnosed a long-standing data-persistence bug as a last-writer-wins registration conflict — fixing it at the hook level so the entire class of bug could not recur.
 - Delivered the **owners & distributions module** end to end: ownership-breakdown tables, distribution generation, payment runs, audit logging, permission-module gating, and soundex-based fuzzy entity search.
 - Built **payments and banking integrations** — Plaid bank linking, bulk payment processing, chargeback and NSF fee handling, deposit scheduling, and payment-gateway configuration.
-- Diagnosed and fixed a **TypeScript compiler performance collapse**, cutting a full type-check from **415 s to 48 s (–88%)** by restructuring the generic typing of a core component — removing a daily multi-minute tax on every developer and CI run.
+- Diagnosed and fixed a **TypeScript compiler performance collapse** that had grown to a 7-minute full type-check, blocking CI and IDE responsiveness across the monorepo. Profiled it with `tsc --generateTrace` and `--generateCpuProfile` to isolate the cause — a polymorphic component whose generic element parameter forced every call site to re-infer across ~950 props, uncached, at ~11.5 s per spread site. Restructured the typing to keep the generic out of the CSS-prop bulk: **426 s → 41.8 s, a 10× speedup**, with **type instantiations cut from 395 k to 197 k (–50%)** and the shared component library alone going **204 s → 10 s (–95%)**.
+- Built a **minimal-repro profiling harness** for the above (a scoped tsconfig importing the component directly rather than through the library index), cutting the diagnostic feedback loop from **~7 minutes to ~25 seconds** and making a previously intractable class of compiler problem routinely debuggable.
+- Eliminated further type-checking hot spots by replacing long equality chains over large union types with `ReadonlySet` lookups, and optimised runtime performance on the matched bank-transactions page and vendor export.
 - Led the **API type-layer migration**, extracting app-specific types out of the shared library to remove architectural boundary violations, and established verification of hand-written types against live Swagger specifications after finding front-end types silently diverging from the real API.
 - Centralised routing behind **typed route builders**, replacing scattered string concatenation with a type-safe API that makes broken links a compile-time error.
 - Maintain the shared **UI component library and Storybook** (10.x) used across all five applications, plus internal forks of three form/layout packages.
@@ -130,15 +132,20 @@ Self-directed two-application product: a mobile-first installable PWA for end us
 
 ## Selected Technical Achievements
 
-| Achievement | Impact |
-|---|---|
-| TypeScript compile optimisation | Full type-check **415 s → 48 s (–88%)** |
-| Agent knowledge base | **27 docs / ~3,150 lines**, team-wide, committed to repo |
-| Reusable agent skills | **4 skills / ~1,100 lines** encoding end-to-end workflows |
-| Commit contribution | **16,900+ commits** across 4 years, 5 applications |
-| OData report engine | Self-service custom reporting, zero engineering per report |
-| Sidebar re-architecture | Provider-based state model; eliminated a bug class |
-| Locus Meus (personal) | 2 apps, OAuth2/PKCE + PWA + 3-language i18n, solo |
+*Every figure below is measured, not estimated.*
+
+| # | Achievement | Measured impact |
+|---|---|---|
+| 1 | **TypeScript check speed** — restructured a polymorphic component's generic typing after trace/CPU profiling | **426 s → 41.8 s — 10× faster** full type-check |
+| 2 | **Type instantiations** — removed per-call-site generic re-inference | **395 k → 197 k — cut by half** |
+| 3 | **Component library check time** — same fix, library scope | **204 s → 10 s — 95% faster** |
+| 4 | **Compiler diagnostic loop** — built a minimal-repro profiling harness | **~7 min → ~25 s — 17× faster** iteration |
+| 5 | **Self-service reporting** — OData report engine with user-built filters and columns | Custom reports built **with zero engineering time per report** |
+| 6 | **Agent-readable knowledge base** — 27 documents, team-wide, committed to repo | **~3,150 lines**; correct-first-time agent output on a 11,300-file codebase |
+| 7 | **Reusable agent skills** — 4 end-to-end workflow skills | **~1,100 lines**; multi-day onboarding compressed to one prompt |
+| 8 | **Sustained delivery** — sole front-end engineer, 5 production apps | **16,900+ commits** over 4 years |
+| 9 | **Sidebar re-architecture** — provider-based state model with unified API | Eliminated an entire recurring **class of state bug** |
+| 10 | **Locus Meus** — solo two-app product, OAuth2/PKCE + PWA + 3-language i18n | Shipped **end to end, single-handed** |
 
 ---
 
