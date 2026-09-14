@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pavel Kruglik - Senior Front-End Engineer / Architect CV</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+      body {
+        font-family: 'Inter', Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+        line-height: 1.45;
+        color: #2b2b2b;
+        background: #fff;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 8.5in;
+        margin: auto;
+        padding: 0.6in 0.7in;
+        box-sizing: border-box;
+      }
+      h1, h2, h3 { margin: 0; color: #111; }
+      a { color: #004080; text-decoration: none; }
+
+      .header { margin-bottom: 16px; }
+      .header h1 { font-size: 23pt; font-weight: 700; letter-spacing: 0.5px; }
+      .header .tagline {
+        font-size: 10.5pt; font-weight: 600; color: #004080; margin: 4px 0 6px;
+      }
+      .header .contact { font-size: 9.5pt; color: #444; line-height: 1.6; }
+
+      h2.section-title {
+        font-size: 12pt; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 0.6px; margin-top: 20px; margin-bottom: 9px;
+        padding-bottom: 3px; border-bottom: 2px solid #333;
+      }
+      h3.sub-title {
+        font-size: 10.5pt; font-weight: 700; color: #004080;
+        margin-top: 12px; margin-bottom: 4px;
+      }
+
+      p { margin: 0 0 8px; }
+      ul { padding-left: 17px; margin: 0 0 8px; }
+      li { margin-bottom: 5px; }
+
+      .skill-row { margin-bottom: 6px; }
+      .skill-row strong { color: #111; }
+
+      .job { margin-bottom: 14px; }
+      .job-header { margin-bottom: 2px; }
+      .job-title { font-weight: 700; font-size: 11pt; color: #111; }
+      .job-meta { font-size: 9.5pt; color: #555; font-style: italic; margin-bottom: 5px; }
+      .job-context { font-size: 9.5pt; color: #444; margin-bottom: 6px; }
+
+      table { width: 100%; border-collapse: collapse; margin: 4px 0 8px; }
+      th, td {
+        text-align: left; padding: 5px 8px; font-size: 9.5pt;
+        vertical-align: top; border-bottom: 1px solid #e0e0e0;
+      }
+      th { font-weight: 700; color: #111; border-bottom: 1px solid #999; }
+
+      .footer-line { font-size: 9.5pt; }
+
+      @media print {
+        .container { padding: 0.4in 0.55in; }
+        h2.section-title { page-break-after: avoid; }
+        .job, h3.sub-title { page-break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>PAVEL KRUGLIK</h1>
+        <div class="tagline">
+          Senior Front-End Engineer / Front-End Architect — React · TypeScript · Node.js · AI Engineering
+        </div>
+        <div class="contact">
+          Remote (Europe) · Available as B2B Contractor · +375 29 800 25 35 (Telegram)<br />
+          pavelkruglik7@gmail.com ·
+          <a href="https://www.linkedin.com/in/pavel-kruglik-402723200/">linkedin.com/in/pavel-kruglik-402723200</a><br />
+          <a href="https://github.com/pavel-kru">github.com/pavel-kru</a> ·
+          <a href="https://github.com/orgs/Locus-Meus">github.com/orgs/Locus-Meus</a>
+        </div>
+      </div>
+
+      <h2 class="section-title">Summary</h2>
+      <p>
+        Senior front-end engineer with 6+ years building large-scale enterprise platforms in React and
+        TypeScript, currently the principal front-end engineer on a property-management and accounting suite
+        of five production applications. Author of 16,900+ commits to a 11,300-file NX monorepo over four
+        years, owning UI architecture, the shared component library, the API type layer, and build tooling
+        end to end.
+      </p>
+      <p>
+        Also the team's AI engineering lead: designed and shipped the agent infrastructure — a 27-document,
+        3,100-line machine-readable knowledge base plus reusable agent skills, deterministic enforcement
+        hooks, and MCP tool integrations — that lets LLM coding agents work correctly inside the codebase.
+        Seeking B2B engagements where deep React/TypeScript architecture expertise and practical AI/LLM
+        engineering are both valued.
+      </p>
+
+      <h2 class="section-title">Core Skills</h2>
+      <div class="skill-row"><strong>Languages &amp; Runtime:</strong> TypeScript (expert, strict mode), JavaScript (ES2023+), Node.js, HTML5, CSS3, OData</div>
+      <div class="skill-row"><strong>Front-End:</strong> React 19, React Router 7, TanStack Query, Redux &amp; Redux-Saga, Zustand, Next.js (SSR/SSG), Single-SPA microfrontends, Stencil.js Web Components</div>
+      <div class="skill-row"><strong>Node.js &amp; Tooling:</strong> Node.js build tooling and CLI scripts, NX monorepo, Webpack 5, Babel/SWC, Yarn workspaces, NPM package authoring &amp; publishing, Husky + lint-staged, multi-environment build pipelines</div>
+      <div class="skill-row"><strong>AI / LLM Engineering:</strong> Claude Code, Anthropic Claude API, Cursor, GPT-4, Gemini; agent skill authoring, prompt &amp; context engineering, agentic knowledge bases, MCP (Model Context Protocol) integration, LangGraph multi-agent orchestration, agent guardrail hooks, n8n automation</div>
+      <div class="skill-row"><strong>UI &amp; Design Systems:</strong> Styled Components, MUI, Storybook 10, design-system architecture, accessible components, responsive &amp; mobile-web patterns</div>
+      <div class="skill-row"><strong>Quality &amp; Observability:</strong> Jest, React Testing Library, Cypress, ESLint, Stylelint, Prettier, Sentry, TypeScript compiler performance profiling</div>
+      <div class="skill-row"><strong>Domains:</strong> FinTech &amp; double-entry accounting, property management, payments (Plaid, ACH, chargeback/NSF), KYC/compliance, IoT &amp; automotive</div>
+
+      <h2 class="section-title">AI &amp; LLM Engineering</h2>
+      <p>
+        A dedicated focus area since 2025. I do not just use AI coding tools — I build the infrastructure
+        that makes them reliable on a large, idiosyncratic codebase, and I ship it to the whole team.
+      </p>
+
+      <h3 class="sub-title">Agent-Readable Knowledge Base (production, team-wide)</h3>
+      <ul>
+        <li>
+          Identified that LLM coding agents produced incorrect code on a 11,300-file monorepo because project
+          conventions existed only as tribal knowledge. Designed and authored a structured, machine-readable
+          knowledge base — <strong>27 documents, ~3,150 lines</strong>, committed to the team repository and
+          routed from a root index — covering the API layer, routing, permissions, forms, table systems,
+          styling rules, and per-application guides.
+        </li>
+        <li>
+          Authored <strong>43 of the 50 commits</strong> to the repository's AI-tooling directories,
+          establishing the pattern the rest of the team now follows.
+        </li>
+        <li>
+          Built the index as a <strong>conditional routing table</strong> ("working with the API → read this;
+          adding routes → read that"), so agents load only the context a task needs instead of exhausting the
+          context window — a context-engineering decision that keeps large tasks inside a single session.
+        </li>
+      </ul>
+
+      <h3 class="sub-title">Reusable Agent Skills (domain-specific automation)</h3>
+      <ul>
+        <li>
+          Designed and shipped <strong>4 production agent skills (~1,100 lines)</strong> encoding entire
+          end-to-end workflows — adding a new feature with correct architecture layout, building an
+          OData-backed custom report, creating a company setting across API/form/view layers, and modifying a
+          complex multi-mode lease form.
+        </li>
+        <li>
+          Each skill turns a multi-day onboarding problem into a single prompt, letting an agent produce
+          architecturally correct code on the first attempt instead of requiring several review rounds.
+        </li>
+      </ul>
+
+      <h3 class="sub-title">Deterministic Guardrails (hooks)</h3>
+      <ul>
+        <li>
+          Wrote <strong>PreToolUse and Stop hooks</strong> in Bash that enforce correctness the model cannot
+          be trusted to self-police: blocking non-compliant git commit trailers outright, and refusing to end
+          a session while the shared knowledge repository has drifted, uncommitted, or unpushed changes.
+        </li>
+        <li>
+          <strong>Principle applied:</strong> where a rule must never be violated, enforce it in the harness
+          rather than the prompt — the model advises, the hook decides.
+        </li>
+      </ul>
+
+      <h3 class="sub-title">Multi-Agent &amp; Tool Integration</h3>
+      <ul>
+        <li>
+          Built a <strong>Claude-to-DeerFlow bridge skill</strong> (LangGraph-based agent platform) to delegate
+          long-running research to a separate agent runtime over HTTP — thread management, streaming runs,
+          model/skill discovery, memory, and file upload — fully env-var driven so it runs unchanged across machines.
+        </li>
+        <li>
+          Integrated <strong>MCP servers</strong> (Figma, Atlassian/Jira, Sentry, Swagger, Google Workspace,
+          Slack) into the daily development loop, letting agents read designs, tickets, production errors, and
+          live API specifications directly instead of working from stale second-hand descriptions.
+        </li>
+        <li>
+          Ran <strong>parallel agent sessions</strong> against a single shared working tree and defined the
+          coordination protocol (pre-edit status checks, inter-agent messaging, per-hunk commit splitting via
+          temporary worktrees) that prevents concurrent sessions from clobbering each other's work.
+        </li>
+      </ul>
+
+      <h3 class="sub-title">Knowledge Synchronisation &amp; Persistent Memory</h3>
+      <ul>
+        <li>
+          Built a private <strong>knowledge-sync repository</strong> versioning skills, hooks, settings, memory,
+          and documentation across two development machines, with a verification script and an automated,
+          hook-enforced sync step — so AI capability improvements propagate instead of being stranded on one laptop.
+        </li>
+        <li>
+          Maintain a <strong>persistent agent memory system</strong> (22 structured, cross-linked entries)
+          capturing verified project facts, corrections, and working preferences, so each new session starts
+          with accumulated context rather than from zero.
+        </li>
+      </ul>
+
+      <h3 class="sub-title">Practical LLM Application</h3>
+      <ul>
+        <li>
+          Use <strong>Claude Code and Cursor as the primary development workflow</strong> for feature delivery,
+          large refactors, and monorepo-wide migrations, with human architectural review on every change.
+        </li>
+        <li>
+          Apply prompt and context engineering daily: scoping task context, structuring documentation for
+          retrieval, decomposing work for agent execution, and verifying AI output against the type-checker,
+          tests, and live API specifications — treating model output as a draft to be proven, never as ground truth.
+        </li>
+        <li>Built <strong>n8n automation workflows</strong> integrating LLM steps into business and development processes.</li>
+      </ul>
+
+      <h2 class="section-title">Professional Experience</h2>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Senior Front-End Engineer / Front-End Architect — Property Management &amp; Accounting Platform</span>
+        </div>
+        <div class="job-meta">Independent B2B Contractor (via Symfony Art) · Aug 2022 – Present · Remote</div>
+        <div class="job-context">
+          Principal front-end engineer on a multi-tenant SaaS suite for property management and double-entry
+          accounting — five production React applications (property management, tenant, vendor, internal admin,
+          KYC) in a shared NX monorepo of ~11,300 TypeScript files. Own UI architecture, the shared component
+          library, the API type layer, build tooling, and AI developer tooling.
+        </div>
+        <ul>
+          <li>
+            Authored <strong>16,900+ commits over four years</strong> (~2,780 features, ~3,730 fixes, ~2,590
+            refactors) as the consistently highest-volume contributor to the codebase, sustaining delivery
+            across five applications without a dedicated front-end team.
+          </li>
+          <li>
+            Built the platform's <strong>financial reporting system</strong> — P&amp;L, balance sheet, cash flow,
+            operating statement, bills overview, unit performance — with customisable totals, drill-down
+            navigation, scheduled email delivery, and multi-format export (CSV, PDF, per-building split
+            reports), replacing manual accountant spreadsheet work.
+          </li>
+          <li>
+            Architected the <strong>custom (memorised) reports engine on OData</strong>: a two-step report
+            builder with type-aware filter operators per column type, drag-and-drop column ordering,
+            include/exclude rule sets, base64-encoded shareable report state, and dynamic
+            <em>$select/$filter/$orderby</em> query generation — letting non-technical users build their own
+            reports without engineering involvement.
+          </li>
+          <li>
+            Re-architected the <strong>global sidebar system</strong> into a provider-based state model with a
+            unified API, and diagnosed a long-standing data-persistence bug as a last-writer-wins registration
+            conflict — fixing it at the hook level so the entire class of bug could not recur.
+          </li>
+          <li>
+            Delivered the <strong>owners &amp; distributions module</strong> end to end: ownership-breakdown
+            tables, distribution generation, payment runs, audit logging, permission-module gating, and
+            soundex-based fuzzy entity search.
+          </li>
+          <li>
+            Built <strong>payments and banking integrations</strong> — Plaid bank linking, bulk payment
+            processing, chargeback and NSF fee handling, deposit scheduling, and payment-gateway configuration.
+          </li>
+          <li>
+            Diagnosed and fixed a <strong>TypeScript compiler performance collapse</strong>, cutting a full
+            type-check from <strong>415 s to 48 s (&minus;88%)</strong> by restructuring the generic typing of a
+            core component — removing a daily multi-minute tax on every developer and CI run.
+          </li>
+          <li>
+            Led the <strong>API type-layer migration</strong>, extracting app-specific types out of the shared
+            library to remove architectural boundary violations, and established verification of hand-written
+            types against live Swagger specifications after finding front-end types silently diverging from the
+            real API.
+          </li>
+          <li>
+            Centralised routing behind <strong>typed route builders</strong>, replacing scattered string
+            concatenation with a type-safe API that makes broken links a compile-time error.
+          </li>
+          <li>
+            Maintain the shared <strong>UI component library and Storybook</strong> used across all five
+            applications, plus internal forks of three form/layout packages.
+          </li>
+          <li>Introduced <strong>Sentry</strong> monitoring and use it to triage production issues directly from error signal to fix.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Software Developer — Administrative Tools &amp; Tenant Portal</span>
+        </div>
+        <div class="job-meta">Jun 2022 – Aug 2022 · Remote</div>
+        <ul>
+          <li>Developed internal dashboards and administrative tooling in Next.js, improving day-to-day operational efficiency for business users.</li>
+          <li>Implemented server-side rendering and static generation on the public tenant portal, improving load performance and SEO.</li>
+          <li>Shipped features and resolved defects on the React + Redux-Saga tenant portal serving residents.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Front-End Engineer — IoT, Component Libraries &amp; FinTech</span>
+        </div>
+        <div class="job-meta">Sep 2020 – May 2022 · Remote</div>
+        <ul>
+          <li>
+            <strong>IoT &amp; automotive platform:</strong> Led migration of a legacy roadside-assistance
+            application from Angular to a modern React microfrontend architecture (Single-SPA), integrating
+            mapping and payment functionality while keeping the legacy system live throughout.
+          </li>
+          <li>
+            <strong>Distributed component library:</strong> Built a framework-agnostic Web Components library
+            with Stencil.js and Storybook, published to NPM and adopted across multiple company projects —
+            giving teams on different frameworks one shared UI vocabulary.
+          </li>
+          <li>
+            <strong>FinTech investment platform:</strong> Built the complete user onboarding and transaction
+            interface, focusing on robust multi-step form validation and secure handling of financial data.
+          </li>
+        </ul>
+      </div>
+
+      <h2 class="section-title">Selected Technical Achievements</h2>
+      <table>
+        <thead>
+          <tr><th>Achievement</th><th>Impact</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TypeScript compile optimisation</td><td>Full type-check <strong>415 s → 48 s (&minus;88%)</strong></td></tr>
+          <tr><td>Agent knowledge base</td><td><strong>27 docs / ~3,150 lines</strong>, team-wide, committed to repo</td></tr>
+          <tr><td>Reusable agent skills</td><td><strong>4 skills / ~1,100 lines</strong> encoding end-to-end workflows</td></tr>
+          <tr><td>Commit contribution</td><td><strong>16,900+ commits</strong> across 4 years, 5 applications</td></tr>
+          <tr><td>OData report engine</td><td>Self-service custom reporting, zero engineering per report</td></tr>
+          <tr><td>Sidebar re-architecture</td><td>Provider-based state model; eliminated a bug class</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Collaboration &amp; Availability</h2>
+      <ul>
+        <li><strong>Engagement model:</strong> B2B contract, short-term or long-term.</li>
+        <li><strong>Workload:</strong> Flexible; scalable part-time to full-time according to project needs.</li>
+        <li>
+          <strong>Work style:</strong> Fully autonomous with extensive asynchronous collaboration experience
+          across international, distributed teams — proven by four years as the sole front-end engineer on a
+          cross-functional product team.
+        </li>
+      </ul>
+
+      <h2 class="section-title">Education</h2>
+      <p class="footer-line">
+        <strong>Belarusian State Economic University</strong> — Bachelor's Degree, Economics &amp; Trade Management
+      </p>
+
+      <h2 class="section-title">Languages</h2>
+      <p class="footer-line">
+        <strong>English</strong> — Professional working proficiency · <strong>Russian</strong> — Native ·
+        <strong>Hebrew</strong> — Pre-intermediate
+      </p>
+    </div>
+  </body>
+</html>
