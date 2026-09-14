@@ -99,16 +99,21 @@
         Also the team's AI engineering lead: designed and shipped the agent infrastructure — a 27-document,
         3,100-line machine-readable knowledge base plus reusable agent skills, deterministic enforcement
         hooks, and MCP tool integrations — that lets LLM coding agents work correctly inside the codebase.
-        Seeking B2B engagements where deep React/TypeScript architecture expertise and practical AI/LLM
-        engineering are both valued.
+      </p>
+      <p>
+        Independently building <strong>Locus Meus</strong>, a two-application product on a current stack
+        (React 19, Vite, Tailwind, Zustand, OAuth2/PKCE, PWA), keeping hands-on with modern tooling outside
+        the enterprise codebase. Seeking B2B engagements where deep React/TypeScript architecture expertise
+        and practical AI/LLM engineering are both valued.
       </p>
 
       <h2 class="section-title">Core Skills</h2>
       <div class="skill-row"><strong>Languages &amp; Runtime:</strong> TypeScript (expert, strict mode), JavaScript (ES2023+), Node.js, HTML5, CSS3, OData</div>
-      <div class="skill-row"><strong>Front-End:</strong> React 19, React Router 7, TanStack Query, Redux &amp; Redux-Saga, Zustand, Next.js (SSR/SSG), Single-SPA microfrontends, Stencil.js Web Components</div>
-      <div class="skill-row"><strong>Node.js &amp; Tooling:</strong> Node.js build tooling and CLI scripts, NX monorepo, Webpack 5, Babel/SWC, Yarn workspaces, NPM package authoring &amp; publishing, Husky + lint-staged, multi-environment build pipelines</div>
+      <div class="skill-row"><strong>Front-End:</strong> React 19, React Router 7, TanStack Query, Redux &amp; Redux-Saga, Zustand, Next.js (SSR/SSG), Single-SPA microfrontends, Stencil.js Web Components, Progressive Web Apps</div>
+      <div class="skill-row"><strong>Node.js &amp; Tooling:</strong> Node.js build tooling and CLI scripts, NX monorepo, Vite 6, Webpack 5, Babel/SWC, Yarn workspaces, NPM package authoring &amp; publishing, Husky + lint-staged, multi-environment build pipelines</div>
       <div class="skill-row"><strong>AI / LLM Engineering:</strong> Claude Code, Anthropic Claude API, Cursor, GPT-4, Gemini; agent skill authoring, prompt &amp; context engineering, agentic knowledge bases, MCP (Model Context Protocol) integration, LangGraph multi-agent orchestration, agent guardrail hooks, n8n automation</div>
-      <div class="skill-row"><strong>UI &amp; Design Systems:</strong> Styled Components, MUI, Storybook 10, design-system architecture, accessible components, responsive &amp; mobile-web patterns</div>
+      <div class="skill-row"><strong>UI &amp; Design Systems:</strong> Styled Components, MUI, Tailwind CSS, Radix UI / shadcn primitives, Storybook 10, design-system architecture, accessible components, responsive &amp; mobile-first patterns</div>
+      <div class="skill-row"><strong>Architecture &amp; Security:</strong> Feature-Sliced Design (FSD), microfrontends, OAuth2 / OpenID Connect, PKCE authorization-code flow, silent token refresh, CSRF protection, internationalisation (i18next)</div>
       <div class="skill-row"><strong>Quality &amp; Observability:</strong> Jest, React Testing Library, Cypress, ESLint, Stylelint, Prettier, Sentry, TypeScript compiler performance profiling</div>
       <div class="skill-row"><strong>Domains:</strong> FinTech &amp; double-entry accounting, property management, payments (Plaid, ACH, chargeback/NSF), KYC/compliance, IoT &amp; automotive</div>
 
@@ -135,6 +140,12 @@
           Built the index as a <strong>conditional routing table</strong> ("working with the API → read this;
           adding routes → read that"), so agents load only the context a task needs instead of exhausting the
           context window — a context-engineering decision that keeps large tasks inside a single session.
+        </li>
+        <li>
+          Applied the same pattern to my own product (<strong>Locus Meus</strong>), shipping an
+          <em>AGENTS.md</em> startup-rules index plus a domain deep-dive (<em>agents/auth.md</em>) documenting
+          the full OAuth2/PKCE flow — proof the approach is a portable method I apply to any codebase, not a
+          one-off artefact of a single employer.
         </li>
       </ul>
 
@@ -316,6 +327,56 @@
         </ul>
       </div>
 
+      <h2 class="section-title">Personal Projects</h2>
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Locus Meus — Mobile-First Gallery Platform</span>
+        </div>
+        <div class="job-meta">
+          Sole Front-End Engineer &amp; Architect · 2026 – Present · React 19 · TypeScript · Vite · Tailwind ·
+          Zustand · TanStack Query
+        </div>
+        <div class="job-context">
+          Self-directed two-application product — a mobile-first installable PWA for end users and a separate
+          admin console — consuming a Java/Spring backend.
+          <a href="https://github.com/orgs/Locus-Meus">github.com/orgs/Locus-Meus</a> (private; walkthrough
+          available on request).
+        </div>
+        <ul>
+          <li>
+            Implemented the complete <strong>OAuth2 Authorization Code flow with PKCE</strong> against a Java
+            authorization server — S256 challenge generation, CSRF <em>state</em> validation, session-storage
+            verifier handling, token exchange, <strong>silent re-authentication</strong> via hidden iframe,
+            post-login redirect restoration, and email verification. Chose browser-redirect PKCE over storing a
+            client secret in the SPA, keeping no long-lived credential in front-end code.
+          </li>
+          <li>
+            Architected both applications on <strong>Feature-Sliced Design</strong>
+            (<em>app / pages / features / entities / shared</em>) with public entry points per slice, enforcing
+            one-directional dependencies in a codebase built to grow.
+          </li>
+          <li>
+            Built a typed <strong>BaseApiClient</strong> over Axios centralising auth headers, error
+            normalisation, and a global 401 handler that clears the session and redirects — so no feature
+            re-implements auth failure handling.
+          </li>
+          <li>
+            Shipped as an <strong>installable PWA</strong> (auto-update service worker) with a
+            <strong>three-language i18n layer</strong> (English, Spanish, Russian) and persisted browser
+            language detection.
+          </li>
+          <li>
+            Delivered <strong>image upload and gallery management</strong> across both apps: upload with
+            processing-status handling, blob-based preview, and admin-side moderation.
+          </li>
+          <li>
+            Wrote the repository's <strong>agent knowledge base</strong> (<em>AGENTS.md</em> +
+            <em>agents/auth.md</em>) so LLM agents follow the project's auth and architecture rules — the same
+            practice I introduced at work, applied here from day one.
+          </li>
+        </ul>
+      </div>
+
       <h2 class="section-title">Selected Technical Achievements</h2>
       <table>
         <thead>
@@ -328,6 +389,7 @@
           <tr><td>Commit contribution</td><td><strong>16,900+ commits</strong> across 4 years, 5 applications</td></tr>
           <tr><td>OData report engine</td><td>Self-service custom reporting, zero engineering per report</td></tr>
           <tr><td>Sidebar re-architecture</td><td>Provider-based state model; eliminated a bug class</td></tr>
+          <tr><td>Locus Meus (personal)</td><td>2 apps, OAuth2/PKCE + PWA + 3-language i18n, solo</td></tr>
         </tbody>
       </table>
 

@@ -15,6 +15,8 @@ Senior front-end engineer with 6+ years building large-scale enterprise platform
 
 Also the team's AI engineering lead: designed and shipped the agent infrastructure — a 27-document, 3,100-line machine-readable knowledge base plus reusable agent skills, deterministic enforcement hooks, and MCP tool integrations — that lets LLM coding agents work correctly inside the codebase.
 
+Independently building **Locus Meus**, a two-application product on a current stack (React 19, Vite, Tailwind, Zustand, OAuth2/PKCE, PWA) — keeping hands-on with modern tooling outside the enterprise codebase.
+
 Seeking B2B engagements where deep React/TypeScript architecture expertise and practical AI/LLM engineering are both valued.
 
 ---
@@ -23,15 +25,17 @@ Seeking B2B engagements where deep React/TypeScript architecture expertise and p
 
 **Languages & Runtime** — TypeScript (expert, strict mode), JavaScript (ES2023+), Node.js, HTML5, CSS3, SQL-like query languages (OData)
 
-**Front-End** — React 19, React Router 7, TanStack Query, Redux + Redux-Saga, Zustand, Next.js (SSR/SSG), Single-SPA microfrontends, Stencil.js Web Components
+**Front-End** — React 19, React Router 7, TanStack Query, Redux + Redux-Saga, Zustand, Next.js (SSR/SSG), Single-SPA microfrontends, Stencil.js Web Components, Progressive Web Apps
 
-**Node.js & Tooling** — Node.js build tooling and CLI scripts, NX monorepo (22.x), Webpack 5, Babel/SWC, Yarn workspaces, npm package authoring & publishing, Husky + lint-staged, `env-cmd` multi-environment pipelines, custom Node packaging scripts
+**Node.js & Tooling** — Node.js build tooling and CLI scripts, NX monorepo (22.x), Vite 6, Webpack 5, Babel/SWC, Yarn workspaces, npm package authoring & publishing, Husky + lint-staged, `env-cmd` multi-environment pipelines, custom Node packaging scripts
 
 **AI / LLM Engineering** — Claude Code, Anthropic Claude API, Cursor, GPT-4, Gemini; agent skill authoring, prompt engineering, context engineering, agentic knowledge bases, MCP (Model Context Protocol) server integration, LangGraph-based multi-agent orchestration, agent guardrail hooks, n8n automation workflows
 
-**UI & Design Systems** — Styled Components, MUI, Storybook 10, design-system architecture, WCAG-minded accessible components, responsive and mobile-web patterns
+**UI & Design Systems** — Styled Components, MUI, Tailwind CSS, Radix UI / shadcn primitives, Storybook 10, design-system architecture, WCAG-minded accessible components, responsive and mobile-first patterns
 
 **Quality & Observability** — Jest, React Testing Library, Cypress, ESLint, Stylelint, Prettier, Sentry, TypeScript compiler performance profiling
+
+**Architecture & Security** — Feature-Sliced Design (FSD), microfrontends, OAuth2 / OpenID Connect, PKCE authorization-code flow, silent token refresh, CSRF protection, internationalisation (i18next)
 
 **Domains** — FinTech & double-entry accounting, property management, payments (Plaid, ACH, chargeback/NSF), KYC/compliance, IoT & automotive
 
@@ -45,6 +49,8 @@ Seeking B2B engagements where deep React/TypeScript architecture expertise and p
 - Identified that LLM coding agents produced incorrect code on a 11,300-file monorepo because the project's conventions existed only as tribal knowledge. Designed and authored a structured, machine-readable knowledge base — **27 documents, ~3,150 lines**, committed to the team repository and routed from a root `CLAUDE.md` index — covering the API layer, routing, permissions, form library, table/column system, styling rules, and per-application guides.
 - Authored **43 of the 50 commits** to the repository's AI-tooling directories, establishing the pattern the rest of the team now follows.
 - Built the index as a **conditional routing table** ("working with the API → read this; adding routes → read that"), so agents load only the context a task needs instead of exhausting the context window — a deliberate context-engineering decision that keeps large tasks inside a single session.
+
+- Applied the same pattern to my own product (**Locus Meus**), shipping an `AGENTS.md` startup-rules index plus a domain deep-dive (`agents/auth.md`) that documents the full OAuth2/PKCE flow — proof the approach is a portable method I apply to any codebase, not a one-off artefact of a single employer.
 
 ### Reusable agent skills (domain-specific automation)
 - Designed and shipped **4 production agent skills** (~1,100 lines) that encode entire end-to-end workflows — adding a new feature with correct architecture layout, building an OData-backed custom report, creating a company setting across API/form/view layers, and modifying a complex multi-mode lease form.
@@ -105,6 +111,23 @@ Principal front-end engineer on a multi-tenant SaaS suite for property managemen
 
 ---
 
+## Personal Projects
+
+### Locus Meus — Mobile-First Gallery Platform *(2026 – present)*
+**Sole front-end engineer & architect** · React 19 · TypeScript · Vite · Tailwind · Zustand · TanStack Query
+`github.com/orgs/Locus-Meus` *(private — walkthrough available on request)*
+
+Self-directed two-application product: a mobile-first installable PWA for end users and a separate admin console, both consuming a Java/Spring backend.
+
+- Implemented the complete **OAuth2 Authorization Code flow with PKCE** against a Java authorization server — `S256` challenge generation, CSRF `state` validation, session-storage verifier handling, token exchange, **silent re-authentication** via hidden iframe, post-login redirect restoration, and email verification. Chose browser-redirect PKCE over storing a client secret in the SPA, keeping no long-lived credential in front-end code.
+- Architected both applications on **Feature-Sliced Design** (`app` / `pages` / `features` / `entities` / `shared`) with public `index.ts` entry points per slice, enforcing one-directional dependencies in a codebase built to grow.
+- Built a typed **`BaseApiClient`** over Axios centralising auth headers, error normalisation, and a global 401 handler that clears the session and redirects — so no feature re-implements auth failure handling.
+- Shipped as an **installable PWA** (`vite-plugin-pwa`, auto-update service worker) with a **three-language i18n layer** (English, Spanish, Russian) and persisted browser language detection.
+- Delivered **image upload and gallery management** across both apps: upload with processing-status handling, blob-based preview, and admin-side moderation.
+- Wrote the repository's **agent knowledge base** (`AGENTS.md` + `agents/auth.md`) so LLM agents follow the project's auth and architecture rules — the same practice I introduced at work, applied here from day one.
+
+---
+
 ## Selected Technical Achievements
 
 | Achievement | Impact |
@@ -115,6 +138,7 @@ Principal front-end engineer on a multi-tenant SaaS suite for property managemen
 | Commit contribution | **16,900+ commits** across 4 years, 5 applications |
 | OData report engine | Self-service custom reporting, zero engineering per report |
 | Sidebar re-architecture | Provider-based state model; eliminated a bug class |
+| Locus Meus (personal) | 2 apps, OAuth2/PKCE + PWA + 3-language i18n, solo |
 
 ---
 
