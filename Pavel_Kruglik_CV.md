@@ -29,7 +29,7 @@ Seeking B2B engagements where deep React/TypeScript architecture expertise and p
 
 **Node.js & Tooling** — Node.js build tooling and CLI scripts, NX monorepo (22.x), Vite 6, Webpack 5, Babel/SWC, Yarn workspaces, npm package authoring & publishing, Husky + lint-staged, `env-cmd` multi-environment pipelines, custom Node packaging scripts
 
-**AI / LLM Engineering** — Claude Code, Anthropic Claude API, Cursor, GPT-4, Gemini; agent skill authoring, prompt engineering, context engineering, agentic knowledge bases, MCP (Model Context Protocol) server integration, LangGraph-based multi-agent orchestration, agent guardrail hooks, n8n automation workflows
+**AI / LLM Engineering** — Claude & Claude Code (primary daily driver), Anthropic Claude API, OpenAI Codex, Cursor, Warp; agent skill authoring, prompt engineering, context engineering, agentic knowledge bases, MCP (Model Context Protocol) server integration, LangGraph-based multi-agent orchestration, agent guardrail hooks, n8n automation workflows
 
 **UI & Design Systems** — Styled Components, MUI, Tailwind CSS, Radix UI / shadcn primitives, Storybook 10, design-system architecture, WCAG-minded accessible components, responsive and mobile-first patterns
 
@@ -37,7 +37,9 @@ Seeking B2B engagements where deep React/TypeScript architecture expertise and p
 
 **Architecture & Security** — Feature-Sliced Design (FSD), microfrontends, OAuth2 / OpenID Connect, PKCE authorization-code flow, silent token refresh, CSRF protection, internationalisation (i18next)
 
-**Domains** — FinTech & double-entry accounting, property management, payments (Plaid, ACH, chargeback/NSF), KYC/compliance, IoT & automotive
+**Payments** — Stripe, Plaid bank linking & reconciliation, ACH/bank and credit-card flows, chargebacks, refunds, NSF fees, security deposits, tokenised public payment links, payment-gateway configuration
+
+**Domains** — FinTech & double-entry accounting, property management, KYC/compliance, IoT & automotive
 
 ---
 
@@ -70,7 +72,7 @@ Seeking B2B engagements where deep React/TypeScript architecture expertise and p
 - Maintain a **persistent agent memory system** (22 structured entries, cross-linked) capturing verified project facts, corrections, and working preferences, so each new session starts with accumulated context rather than from zero.
 
 ### Practical LLM application
-- Use **Claude Code and Cursor as the primary development workflow** for feature delivery, large refactors, and migrations across the monorepo, with human architectural review on every change.
+- Use **Claude and Claude Code as my primary development workflow** for feature delivery, large refactors, and monorepo-wide migrations, with human architectural review on every change; also work with **OpenAI Codex** on personal projects, and have hands-on experience with **Cursor** and **Warp**. Comfortable choosing between agentic tools on their merits rather than being tied to one vendor.
 - Apply prompt and context engineering daily: scoping task context, structuring documentation for retrieval, decomposing work for agent execution, and verifying AI output against the type-checker, tests, and live API specifications — treating model output as a draft to be proven, never as ground truth.
 - Built **n8n automation workflows** integrating LLM steps into business and development processes.
 
@@ -88,7 +90,9 @@ Principal front-end engineer on a multi-tenant SaaS suite for property managemen
 - Architected the **custom (memorised) reports engine on OData**: a two-step report builder with type-aware filter operators per column type, drag-and-drop column ordering, include/exclude rule sets, base64-encoded shareable report state, and dynamic `$select`/`$filter`/`$orderby` query generation — letting non-technical users build their own reports without engineering involvement.
 - Re-architected the **global sidebar system** into a provider-based state model with a unified API, and diagnosed a long-standing data-persistence bug as a last-writer-wins registration conflict — fixing it at the hook level so the entire class of bug could not recur.
 - Delivered the **owners & distributions module** end to end: ownership-breakdown tables, distribution generation, payment runs, audit logging, permission-module gating, and soundex-based fuzzy entity search.
-- Built **payments and banking integrations** — Plaid bank linking, bulk payment processing, chargeback and NSF fee handling, deposit scheduling, and payment-gateway configuration.
+- Built the platform's **payments layer** across the full money-movement lifecycle: receive-payment and bulk-payment processing with multi-document application, **chargebacks, refunds and NSF fee handling**, manual and security deposits, owner distribution payment runs, and payment-gateway configuration with per-gateway deposit-delay settings.
+- Integrated **Plaid** for bank-account linking and automated bank-feed reconciliation, including **memorised transaction rules** that auto-categorise incoming bank transactions and a matched-transactions review workflow.
+- Delivered **Payment by Link**: tokenised public payment links a tenant can pay without an account, with link lifecycle management (resend, expire, status-driven actions), credit-card fee pass-through rules, and per-charge breakdowns.
 - Diagnosed and fixed a **TypeScript compiler performance collapse** that had grown to a 7-minute full type-check, blocking CI and IDE responsiveness across the monorepo. Profiled it with `tsc --generateTrace` and `--generateCpuProfile` to isolate the cause — a polymorphic component whose generic element parameter forced every call site to re-infer across ~950 props, uncached, at ~11.5 s per spread site. Restructured the typing to keep the generic out of the CSS-prop bulk: **426 s → 41.8 s, a 10× speedup**, with **type instantiations cut from 395 k to 197 k (–50%)** and the shared component library alone going **204 s → 10 s (–95%)**.
 - Built a **minimal-repro profiling harness** for the above (a scoped tsconfig importing the component directly rather than through the library index), cutting the diagnostic feedback loop from **~7 minutes to ~25 seconds** and making a previously intractable class of compiler problem routinely debuggable.
 - Eliminated further type-checking hot spots by replacing long equality chains over large union types with `ReadonlySet` lookups, and optimised runtime performance on the matched bank-transactions page and vendor export.
@@ -107,7 +111,7 @@ Principal front-end engineer on a multi-tenant SaaS suite for property managemen
 ### Front-End Engineer — IoT, Component Libraries & FinTech
 **Sep 2020 – May 2022 · Remote**
 
-- **IoT & automotive platform:** Led migration of a legacy roadside-assistance application from Angular to a modern React microfrontend architecture (Single-SPA), integrating mapping and payment functionality while keeping the legacy system live throughout.
+- **IoT & automotive platform:** Led migration of a legacy roadside-assistance application from Angular to a modern React microfrontend architecture (Single-SPA), keeping the legacy system live throughout. Integrated **Stripe** for in-app payment of roadside call-outs — card capture, payment confirmation and error/decline handling — alongside live mapping and vehicle-location features.
 - **Distributed component library:** Built a framework-agnostic Web Components library with Stencil.js and Storybook, published to NPM and adopted across multiple company projects — giving teams on different frameworks one shared UI vocabulary.
 - **FinTech investment platform:** Built the complete user onboarding and transaction interface, focusing on robust multi-step form validation and secure handling of financial data.
 

@@ -112,11 +112,12 @@
       <div class="skill-row"><strong>Languages &amp; Runtime:</strong> TypeScript (expert, strict mode), JavaScript (ES2023+), Node.js, HTML5, CSS3, OData</div>
       <div class="skill-row"><strong>Front-End:</strong> React 19, React Router 7, TanStack Query, Redux &amp; Redux-Saga, Zustand, Next.js (SSR/SSG), Single-SPA microfrontends, Stencil.js Web Components, Progressive Web Apps</div>
       <div class="skill-row"><strong>Node.js &amp; Tooling:</strong> Node.js build tooling and CLI scripts, NX monorepo, Vite 6, Webpack 5, Babel/SWC, Yarn workspaces, NPM package authoring &amp; publishing, Husky + lint-staged, multi-environment build pipelines</div>
-      <div class="skill-row"><strong>AI / LLM Engineering:</strong> Claude Code, Anthropic Claude API, Cursor, GPT-4, Gemini; agent skill authoring, prompt &amp; context engineering, agentic knowledge bases, MCP (Model Context Protocol) integration, LangGraph multi-agent orchestration, agent guardrail hooks, n8n automation</div>
+      <div class="skill-row"><strong>AI / LLM Engineering:</strong> Claude &amp; Claude Code (primary daily driver), Anthropic Claude API, OpenAI Codex, Cursor, Warp; agent skill authoring, prompt &amp; context engineering, agentic knowledge bases, MCP (Model Context Protocol) integration, LangGraph multi-agent orchestration, agent guardrail hooks, n8n automation</div>
       <div class="skill-row"><strong>UI &amp; Design Systems:</strong> Styled Components, MUI, Tailwind CSS, Radix UI / shadcn primitives, Storybook 10, design-system architecture, accessible components, responsive &amp; mobile-first patterns</div>
       <div class="skill-row"><strong>Architecture &amp; Security:</strong> Feature-Sliced Design (FSD), microfrontends, OAuth2 / OpenID Connect, PKCE authorization-code flow, silent token refresh, CSRF protection, internationalisation (i18next)</div>
       <div class="skill-row"><strong>Quality &amp; Observability:</strong> Jest, React Testing Library, Cypress, ESLint, Stylelint, Prettier, Sentry, TypeScript compiler performance profiling</div>
-      <div class="skill-row"><strong>Domains:</strong> FinTech &amp; double-entry accounting, property management, payments (Plaid, ACH, chargeback/NSF), KYC/compliance, IoT &amp; automotive</div>
+      <div class="skill-row"><strong>Payments:</strong> Stripe, Plaid bank linking &amp; reconciliation, ACH/bank and credit-card flows, chargebacks, refunds, NSF fees, security deposits, tokenised public payment links, payment-gateway configuration</div>
+      <div class="skill-row"><strong>Domains:</strong> FinTech &amp; double-entry accounting, property management, KYC/compliance, IoT &amp; automotive</div>
 
       <h2 class="section-title">AI &amp; LLM Engineering</h2>
       <p>
@@ -213,8 +214,11 @@
       <h3 class="sub-title">Practical LLM Application</h3>
       <ul>
         <li>
-          Use <strong>Claude Code and Cursor as the primary development workflow</strong> for feature delivery,
-          large refactors, and monorepo-wide migrations, with human architectural review on every change.
+          Use <strong>Claude and Claude Code as my primary development workflow</strong> for feature delivery,
+          large refactors, and monorepo-wide migrations, with human architectural review on every change; also
+          work with <strong>OpenAI Codex</strong> on personal projects, and have hands-on experience with
+          <strong>Cursor</strong> and <strong>Warp</strong>. Comfortable choosing between agentic tools on
+          their merits rather than being tied to one vendor.
         </li>
         <li>
           Apply prompt and context engineering daily: scoping task context, structuring documentation for
@@ -267,8 +271,20 @@
             soundex-based fuzzy entity search.
           </li>
           <li>
-            Built <strong>payments and banking integrations</strong> — Plaid bank linking, bulk payment
-            processing, chargeback and NSF fee handling, deposit scheduling, and payment-gateway configuration.
+            Built the platform's <strong>payments layer</strong> across the full money-movement lifecycle:
+            receive-payment and bulk-payment processing with multi-document application,
+            <strong>chargebacks, refunds and NSF fee handling</strong>, manual and security deposits, owner
+            distribution payment runs, and payment-gateway configuration with per-gateway deposit-delay settings.
+          </li>
+          <li>
+            Integrated <strong>Plaid</strong> for bank-account linking and automated bank-feed reconciliation,
+            including <strong>memorised transaction rules</strong> that auto-categorise incoming bank
+            transactions and a matched-transactions review workflow.
+          </li>
+          <li>
+            Delivered <strong>Payment by Link</strong>: tokenised public payment links a tenant can pay without
+            an account, with link lifecycle management (resend, expire, status-driven actions), credit-card fee
+            pass-through rules, and per-charge breakdowns.
           </li>
           <li>
             Diagnosed and fixed a <strong>TypeScript compiler performance collapse</strong> that had grown to a
@@ -329,8 +345,10 @@
         <ul>
           <li>
             <strong>IoT &amp; automotive platform:</strong> Led migration of a legacy roadside-assistance
-            application from Angular to a modern React microfrontend architecture (Single-SPA), integrating
-            mapping and payment functionality while keeping the legacy system live throughout.
+            application from Angular to a modern React microfrontend architecture (Single-SPA), keeping the
+            legacy system live throughout. Integrated <strong>Stripe</strong> for in-app payment of roadside
+            call-outs — card capture, payment confirmation and error/decline handling — alongside live mapping
+            and vehicle-location features.
           </li>
           <li>
             <strong>Distributed component library:</strong> Built a framework-agnostic Web Components library
