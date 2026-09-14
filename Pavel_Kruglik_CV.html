@@ -255,10 +255,14 @@
           </li>
           <li>
             Architected the <strong>custom (memorised) reports engine on OData</strong>: a two-step report
-            builder with type-aware filter operators per column type, drag-and-drop column ordering,
-            include/exclude rule sets, base64-encoded shareable report state, and dynamic
-            <em>$select/$filter/$orderby</em> query generation — letting non-technical users build their own
-            reports without engineering involvement.
+            builder with type-aware filter operators per column type, include/exclude rule sets,
+            base64-encoded shareable report state, and dynamic <em>$select/$filter/$orderby</em> query
+            generation — letting non-technical users build their own reports without engineering involvement.
+          </li>
+          <li>
+            Hand-rolled the report builder's <strong>drag-and-drop column reordering</strong> on the native
+            HTML5 drag API with <strong>no third-party DnD dependency</strong> — including a custom drag-image
+            renderer that previews the moving column — keeping the bundle free of a library for a single feature.
           </li>
           <li>
             Re-architected the <strong>global sidebar system</strong> into a provider-based state model with a
@@ -320,6 +324,12 @@
           <li>
             Maintain the shared <strong>UI component library and Storybook</strong> used across all five
             applications, plus internal forks of three form/layout packages.
+          </li>
+          <li>
+            Designed the table system's <strong>navigable row/cell links</strong>: rather than a JavaScript row
+            <em>onClick</em>, a row's <em>href</em> is cloned down into each cell and rendered as a real anchor,
+            so every row supports middle-click, open-in-new-tab, keyboard focus and link preview — restoring
+            native browser behaviour that click-handler tables silently break.
           </li>
           <li>Introduced <strong>Sentry</strong> monitoring and use it to triage production issues directly from error signal to fix.</li>
         </ul>
