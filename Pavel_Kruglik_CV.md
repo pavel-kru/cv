@@ -11,7 +11,7 @@ GitHub: https://github.com/pavel-kru
 
 ## Summary
 
-Senior front-end engineer with 6+ years building enterprise platforms in React and TypeScript. Since 2022, principal front-end engineer on a property-management and accounting suite of five production apps in an ~11,300-file NX monorepo. Cut the suite's full TypeScript type-check from **426 s to 41.8 s (10×)**, and since Sep 2026 lead the front end of a legacy ASP.NET WebForms → React modernization.
+Senior front-end engineer with 6+ years building enterprise platforms in React and TypeScript. Since 2022, principal front-end engineer on a property-management and accounting suite of five production apps in an ~11,300-file NX monorepo. Cut the suite's full TypeScript type-check from **426 s to 41.8 s (10×)**, and since Sep 2026 have architected and led the front end of a legacy ASP.NET WebForms → React modernization.
 
 Also the team's AI engineering lead: built the agent knowledge base, workflow skills and guardrail hooks that let LLM coding agents (Claude Code primarily) work reliably inside the codebase.
 
@@ -71,9 +71,10 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 - Designed the table system's **navigable row/cell links** as real anchors, so middle-click, new-tab and keyboard navigation all work.
 - Highest-volume contributor to the monorepo: **16,900+ small, atomic commits** over four years, sustaining five apps without a separate front-end team.
 
-**Legacy modernization (Sep 2026 – present)** — leading the front end of a legacy ASP.NET WebForms → React rewrite of a second product.
+**Legacy modernization (Sep 2026 – present)** — front-end architect and lead for a legacy ASP.NET WebForms → React rewrite of a second product.
 
-- Built the new SPA's foundation: React 19, Vite, TanStack Query, Feature-Sliced Design with **ESLint-enforced layer boundaries**, and an in-house design system of 20+ accessible components.
+- **Architected the new React SPA** (React 19, Vite, TanStack Query) on Feature-Sliced Design, with layer and slice-isolation rules enforced by `eslint-plugin-boundaries` and an architecture guide written for engineers and coding agents.
+- Designed its building blocks: a report registry, TanStack Query query factories, Mock Service Worker mocks kept out of the production bundle, and an in-house design system of 20+ accessible components.
 - Migrated **10 report pages** (cash receipts, tenant balances, legal, labels, envelopes, custom letters and more) to full legacy parity against an ASP.NET 8 Swagger contract, deployed as an IIS sub-application beside the live legacy site.
 - Authored **22 of the repo's 31 commits (~60k lines)** in a codebase with 100+ Vitest suites, and wrote the front-end build/review skills for the team's agent-driven, spec-first migration pipeline.
 
