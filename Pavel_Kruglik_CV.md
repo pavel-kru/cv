@@ -75,8 +75,8 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 
 - **Architected the new React SPA** (React 19, Vite, TanStack Query) on Feature-Sliced Design, with layer and slice-isolation rules enforced by `eslint-plugin-boundaries` and an architecture guide written for engineers and coding agents.
 - Designed its building blocks: a report registry, TanStack Query query factories, Mock Service Worker mocks kept out of the production bundle, and an in-house design system of 20+ accessible components.
-- Migrated **10 report pages** (cash receipts, tenant balances, legal, labels, envelopes, custom letters and more) to full legacy parity against an ASP.NET 8 Swagger contract, deployed as an IIS sub-application beside the live legacy site.
-- Authored **22 of the repo's 31 commits (~60k lines)** in a codebase with 100+ Vitest suites, and wrote the front-end build/review skills for the team's agent-driven, spec-first migration pipeline.
+- Delivered the **proof of concept that secured approval for the full migration**: reports at legacy parity against an ASP.NET 8 Swagger contract, deployed as an IIS sub-application beside the live legacy site.
+- Wrote the front-end build and review skills for the team's agent-driven, spec-first migration pipeline.
 
 ### Software Developer — Administrative Tools & Tenant Portal
 **Independent B2B Contractor (via Symfony Art) · Jun 2022 – Aug 2022 · Remote**
