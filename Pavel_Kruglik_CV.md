@@ -31,7 +31,7 @@ Seeking B2B engagements where deep React/TypeScript architecture and practical A
 
 **UI & Architecture** — Tailwind, Radix/shadcn, Styled Components, MUI, Storybook, Feature-Sliced Design, OAuth2/OIDC + PKCE, accessible (WCAG-minded) components
 
-**Quality** — Jest, React Testing Library, Cypress, ESLint, Sentry, TS compiler performance profiling
+**Quality** — Jest, Vitest, React Testing Library, Mock Service Worker, Cypress, ESLint, Sentry, TS compiler performance profiling
 
 **Payments** — Stripe, Plaid (bank linking & reconciliation), chargebacks/refunds/NSF, ACH & card flows, tokenised payment links
 
@@ -64,6 +64,7 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 - Built the **payments layer**: bulk payments, chargebacks/refunds/NSF fees, security deposits, **Plaid** bank linking with auto-categorising memorised transaction rules, and **Payment by Link** (tokenised public payment links with full lifecycle management).
 - Re-architected the **global sidebar system** into a provider-based state model, fixing a last-writer-wins bug at the hook level so the entire bug class couldn't recur. Delivered the **owners & distributions module** end to end (breakdowns, payment runs, audit logging, soundex search).
 - Led the **API type-layer migration** out of the shared library and established verification of hand-written types against live Swagger specs. Centralised routing behind **typed route builders**, and designed the table system's **navigable row/cell links** (real anchors cloned per-cell, so middle-click/new-tab/keyboard all work — not a JS `onClick`).
+- Led the front end of the company's **legacy ASP.NET WebForms → React modernization** of a second product (Sep 2026 – present). Built the new SPA's foundation — React 19, Vite, TanStack Query, Feature-Sliced Design with **ESLint-enforced layer boundaries**, and an in-house design system of 20+ accessible components — then migrated **10 report pages** (cash receipts, tenant balances, legal, labels, envelopes, custom letters and more) to full legacy parity against an ASP.NET 8 Swagger contract, deployed as an IIS sub-application beside the live legacy site. Authored **22 of the repo's 31 commits (~60k lines)** across a codebase with 100+ Vitest suites, and wrote the front-end build/review skills for the team's agent-driven, spec-first migration pipeline.
 
 ### Software Developer — Administrative Tools & Tenant Portal
 **Jun 2022 – Aug 2022 · Remote**
