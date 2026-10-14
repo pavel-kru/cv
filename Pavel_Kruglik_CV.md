@@ -2,7 +2,7 @@
 
 **Senior Front-End Engineer / Architect — React · TypeScript · Node.js · AI Engineering**
 
-Remote (Europe) · Available as B2B contractor
+Belarus (UTC+3) · Remote, EU/US working-hours overlap · Available as B2B contractor
 Email: pavelkruglik7@gmail.com · Telegram/Phone: +375 29 800 25 35
 LinkedIn: https://www.linkedin.com/in/pavel-kruglik-402723200/
 GitHub: https://github.com/pavel-kru
@@ -11,11 +11,11 @@ GitHub: https://github.com/pavel-kru
 
 ## Summary
 
-Senior front-end engineer with 6+ years building large-scale enterprise platforms in React and TypeScript — currently the principal front-end engineer on a property-management and accounting suite of five production applications (16,900+ commits over four years, ~11,300-file NX monorepo). Diagnosed and fixed a TypeScript compiler bottleneck, cutting a full type-check **426 s → 41.8 s (10×)**.
+Senior front-end engineer with 6+ years building enterprise platforms in React and TypeScript. Since 2022, principal front-end engineer on a property-management and accounting suite of five production apps in an ~11,300-file NX monorepo. Cut the suite's full TypeScript type-check from **426 s to 41.8 s (10×)**, and since Sep 2026 lead the front end of a legacy ASP.NET WebForms → React modernization.
 
-Also the team's AI engineering lead: built the agent knowledge base, reusable agent skills, and enforcement hooks that let LLM coding agents (Claude Code, day to day; Codex, Cursor and Warp also used) work correctly inside the codebase — then applied the same method solo on **Locus Meus**, a two-app OAuth2/PKCE product built on React 19 and Vite.
+Also the team's AI engineering lead: built the agent knowledge base, workflow skills and guardrail hooks that let LLM coding agents (Claude Code primarily) work reliably inside the codebase.
 
-Seeking B2B engagements where deep React/TypeScript architecture and practical AI/LLM engineering are both valued.
+Seeking B2B engagements that value React/TypeScript architecture and practical AI/LLM engineering.
 
 ---
 
@@ -41,13 +41,12 @@ Seeking B2B engagements where deep React/TypeScript architecture and practical A
 
 ## AI & LLM Engineering
 
-*I don't just use AI coding tools — I build the infrastructure that makes them reliable on a large, idiosyncratic codebase, and I apply the same method to my own projects.*
-
-- **Agent-readable knowledge base:** authored **27 documents (~3,150 lines)**, committed to the team repo and routed through a conditional index (`CLAUDE.md` → "working with the API? read this") so agents load only what a task needs — **43 of the 50 commits** to the repo's AI-tooling directories are mine. Applied the identical pattern solo on Locus Meus (`AGENTS.md` + `agents/auth.md`), proving it's a portable method, not a one-employer artefact.
-- **Reusable agent skills:** designed **4 end-to-end workflow skills** (~1,100 lines) that turn a multi-day onboarding problem — adding a feature, building an OData report, wiring a company setting — into a single correct-on-first-try prompt.
-- **Deterministic guardrails:** wrote Bash hooks that enforce what a model can't be trusted to self-police — blocking bad commit trailers, refusing to end a session with unsynced shared knowledge. Where a rule must never break, it belongs in the harness, not the prompt.
-- **Multi-agent tooling:** built a Claude-to-DeerFlow bridge (LangGraph) for delegated research, integrated MCP servers (Figma, Jira, Sentry, Swagger, Slack) into the daily loop, and defined the coordination protocol for running parallel agent sessions safely on one working tree.
-- **Daily practice:** Claude Code is my primary development driver for features, refactors and migrations, with human review on every change; Codex, Cursor and Warp used alongside it. Prompt/context engineering and verifying model output against the type-checker and live API specs are routine, not novel — output is a draft to be proven, never trusted outright.
+- **Agent knowledge base:** authored 27 documents (~3,150 lines) in the team repo, routed through a conditional `CLAUDE.md` index so agents load only the docs a task needs.
+- **Ownership of AI tooling:** wrote 43 of the 50 commits to the repo's AI-tooling directories; reused the same knowledge-base pattern in a personal project (`AGENTS.md`).
+- **Workflow skills:** designed 4 end-to-end agent skills (~1,100 lines) for adding a feature, building an OData report and wiring a company setting, replacing multi-day onboarding with one prompt.
+- **Guardrail hooks:** wrote Bash hooks that block malformed commit trailers and prevent a session ending with unsynced shared knowledge.
+- **Multi-agent tooling:** built a Claude-to-DeerFlow (LangGraph) bridge for delegated research, and integrated MCP servers (Figma, Jira, Sentry, Swagger, Slack) into daily development.
+- **Parallel sessions:** defined the coordination protocol for running several agent sessions safely on one working tree. Every agent change is human-reviewed and checked against the type-checker and live API specs.
 
 ---
 
@@ -58,26 +57,35 @@ Seeking B2B engagements where deep React/TypeScript architecture and practical A
 
 Principal front-end engineer on a multi-tenant SaaS suite — five production React apps in a shared NX monorepo (~11,300 TS files). Own UI architecture, the shared component library, the API type layer, build tooling, and AI developer tooling.
 
-- **16,900+ commits over four years** as the highest-volume contributor, sustaining delivery across five apps without a dedicated front-end team.
-- Fixed a **TypeScript compiler performance collapse** (7-minute full check). Profiled with `tsc --generateTrace`/`--generateCpuProfile`, traced it to a polymorphic component re-inferring generics across ~950 props per call site, and restructured the typing: **426 s → 41.8 s (10×)**, type instantiations **395k → 197k (−50%)**, component library **204 s → 10 s (−95%)**. Also built the minimal-repro profiling harness that made the diagnosis possible (~7 min → ~25 s iteration loop).
-- Built the platform's **financial reporting system** (P&L, balance sheet, cash flow, operating statement) with scheduled email delivery and multi-format export, and architected the **custom reports engine on OData** — a two-step builder with type-aware filters and dynamic `$select`/`$filter`/`$orderby` generation, letting non-technical users build their own reports. Hand-rolled its drag-and-drop column reordering on the native HTML5 API with no DnD library.
-- Built the **payments layer**: bulk payments, chargebacks/refunds/NSF fees, security deposits, **Plaid** bank linking with auto-categorising memorised transaction rules, and **Payment by Link** (tokenised public payment links with full lifecycle management).
-- Re-architected the **global sidebar system** into a provider-based state model, fixing a last-writer-wins bug at the hook level so the entire bug class couldn't recur. Delivered the **owners & distributions module** end to end (breakdowns, payment runs, audit logging, soundex search).
-- Led the **API type-layer migration** out of the shared library and established verification of hand-written types against live Swagger specs. Centralised routing behind **typed route builders**, and designed the table system's **navigable row/cell links** (real anchors cloned per-cell, so middle-click/new-tab/keyboard all work — not a JS `onClick`).
-- Led the front end of the company's **legacy ASP.NET WebForms → React modernization** of a second product (Sep 2026 – present). Built the new SPA's foundation — React 19, Vite, TanStack Query, Feature-Sliced Design with **ESLint-enforced layer boundaries**, and an in-house design system of 20+ accessible components — then migrated **10 report pages** (cash receipts, tenant balances, legal, labels, envelopes, custom letters and more) to full legacy parity against an ASP.NET 8 Swagger contract, deployed as an IIS sub-application beside the live legacy site. Authored **22 of the repo's 31 commits (~60k lines)** across a codebase with 100+ Vitest suites, and wrote the front-end build/review skills for the team's agent-driven, spec-first migration pipeline.
+- Fixed a **TypeScript compiler performance collapse**: traced a 7-minute full check to a polymorphic component re-inferring generics across ~950 props, and restructured its typing — **426 s → 41.8 s (10×)**, type instantiations **395k → 197k (−50%)**.
+- Cut the component library's type-check **204 s → 10 s (−95%)**, using a minimal-repro profiling harness I built with `tsc --generateTrace`/`--generateCpuProfile` (iteration loop ~7 min → ~25 s).
+- Built the **financial reporting system** (P&L, balance sheet, cash flow, operating statement) with scheduled email delivery and multi-format export.
+- Architected the **custom reports engine on OData**: a two-step builder with type-aware filters and generated `$select`/`$filter`/`$orderby`, so non-technical users build their own reports; drag-and-drop column reordering on the native HTML5 API.
+- Built the **payments layer**: bulk payments, chargebacks/refunds/NSF fees, security deposits, **Plaid** bank linking with auto-categorising transaction rules, and **Payment by Link** (tokenised public payment links).
+- Re-architected the **global sidebar system** into a provider-based state model, removing a last-writer-wins bug class at the hook level.
+- Delivered the **owners & distributions module** end to end: breakdowns, payment runs, audit logging and soundex search.
+- Led the **API type-layer migration** out of the shared library, with hand-written types verified against live Swagger specs; centralised routing behind **typed route builders**.
+- Designed the table system's **navigable row/cell links** as real anchors, so middle-click, new-tab and keyboard navigation all work.
+- Highest-volume contributor to the monorepo: **16,900+ small, atomic commits** over four years, sustaining five apps without a separate front-end team.
+
+**Legacy modernization (Sep 2026 – present)** — leading the front end of a legacy ASP.NET WebForms → React rewrite of a second product.
+
+- Built the new SPA's foundation: React 19, Vite, TanStack Query, Feature-Sliced Design with **ESLint-enforced layer boundaries**, and an in-house design system of 20+ accessible components.
+- Migrated **10 report pages** (cash receipts, tenant balances, legal, labels, envelopes, custom letters and more) to full legacy parity against an ASP.NET 8 Swagger contract, deployed as an IIS sub-application beside the live legacy site.
+- Authored **22 of the repo's 31 commits (~60k lines)** in a codebase with 100+ Vitest suites, and wrote the front-end build/review skills for the team's agent-driven, spec-first migration pipeline.
 
 ### Software Developer — Administrative Tools & Tenant Portal
-**Jun 2022 – Aug 2022 · Remote**
+**Independent B2B Contractor (via Symfony Art) · Jun 2022 – Aug 2022 · Remote**
 
 - Built internal admin dashboards in Next.js with SSR/SSG for the public tenant portal, improving performance and SEO.
 - Shipped features and fixes on the React + Redux-Saga tenant portal serving residents.
 
 ### Front-End Engineer — IoT, Component Libraries & FinTech
-**Sep 2020 – May 2022 · Remote**
+**Independent B2B Contractor (via Omertex) · Sep 2020 – May 2022 · Remote**
 
-- **IoT & automotive:** led migration of a roadside-assistance platform from Angular to React microfrontends (Single-SPA), integrating **Stripe** payments and live mapping while keeping the legacy system live throughout.
-- **Component library:** built a framework-agnostic Web Components library (Stencil.js + Storybook), published to NPM and adopted across multiple projects.
-- **FinTech:** built the onboarding and transaction UI for an investment platform, with robust multi-step form validation.
+- **IoT & automotive:** led migration of a roadside-assistance platform from Angular to React microfrontends (Single-SPA), integrating **Stripe** payments and live mapping while the legacy system stayed live.
+- **Component library:** built a framework-agnostic Web Components library (Stencil.js + Storybook), published to npm and adopted across multiple projects.
+- **FinTech:** built the onboarding and transaction UI for an investment platform, with multi-step form validation.
 
 ---
 
@@ -89,14 +97,14 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 
 Solo two-app product (end-user PWA + admin console) on a Java/Spring backend.
 
-- Implemented **OAuth2 Authorization Code + PKCE** end to end — S256 challenge, CSRF state validation, silent iframe re-authentication, redirect restoration — deliberately avoiding a client secret in the SPA.
-- Built on **Feature-Sliced Design**; shipped as an installable **PWA** with 3-language i18n; wrote the project's own `AGENTS.md` agent knowledge base.
+- Implemented **OAuth2 Authorization Code + PKCE** end to end — S256 challenge, CSRF state validation, silent iframe re-authentication, redirect restoration — with no client secret in the SPA.
+- Built on **Feature-Sliced Design**; shipped as an installable **PWA** with 3-language i18n and its own `AGENTS.md` agent knowledge base.
 
 ---
 
 ## Collaboration & Availability
 
-B2B contract, short- or long-term; workload flexible from part-time to full-time. Fully autonomous with four years' experience as the sole front-end engineer on an async, international team.
+B2B contract, short- or long-term; part-time to full-time. Four years as the sole front-end engineer on an async, international team.
 
 ---
 
