@@ -101,8 +101,8 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 Solo two-app product (end-user PWA + admin console) on a Java/Spring backend.
 
 - Implemented **OAuth2 Authorization Code + PKCE** end to end — S256 challenge, CSRF state validation, silent iframe re-authentication, redirect restoration — with no client secret in the SPA.
-- Automated the project's delivery communication: a **GitHub Actions** workflow posts every new pull request (repo, title, link, author) to a Telegram topic via the Bot API.
-- Set up a scheduled **Jira → Telegram** digest that sends the current task list with direct issue links.
+- Built a **GitHub Actions → Telegram** pull-request notification workflow that delivers the repository, title, link, and author to a dedicated topic via the Bot API.
+- Implemented a scheduled **Jira → Telegram** task digest with current work items and direct issue links.
 - Built on **Feature-Sliced Design**; shipped as an installable **PWA** with 3-language i18n and its own `AGENTS.md` agent knowledge base.
 
 ---
