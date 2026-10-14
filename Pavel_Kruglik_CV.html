@@ -86,6 +86,7 @@
       <div class="skill-row"><strong>Node.js &amp; Build Tooling:</strong> Node.js CLI/build scripts, NX, Vite, Webpack, Babel/SWC, Yarn workspaces, npm package publishing, Husky + lint-staged</div>
       <div class="skill-row"><strong>AI / LLM Engineering:</strong> Claude Code (primary), Claude API, OpenAI Codex, Cursor, Warp; agent skill authoring, context engineering, agentic knowledge bases, MCP integration, LangGraph orchestration, guardrail hooks</div>
       <div class="skill-row"><strong>UI &amp; Architecture:</strong> Tailwind, Radix/shadcn, Styled Components, MUI, Storybook, Feature-Sliced Design, OAuth2/OIDC + PKCE, accessible (WCAG-minded) components</div>
+      <div class="skill-row"><strong>DevOps &amp; Team Automation:</strong> GitHub Actions (CI workflows, event triggers, secrets), Telegram Bot API, Slack Workflow Builder, Jira integrations, scheduled jobs, Bash/curl scripting</div>
       <div class="skill-row"><strong>Quality:</strong> Jest, Vitest, React Testing Library, Mock Service Worker, Cypress, ESLint, Sentry, TS compiler performance profiling</div>
       <div class="skill-row"><strong>Payments:</strong> Stripe, Plaid (bank linking &amp; reconciliation), chargebacks/refunds/NSF, ACH &amp; card flows, tokenised payment links</div>
       <div class="skill-row"><strong>Domains:</strong> FinTech &amp; double-entry accounting, property management, KYC/compliance, IoT &amp; automotive</div>
@@ -114,6 +115,7 @@
           <li>Re-architected the <strong>global sidebar system</strong> into a provider-based state model, removing a last-writer-wins bug class at the hook level.</li>
           <li>Delivered the <strong>owners &amp; distributions module</strong> end to end: breakdowns, payment runs, audit logging and soundex search.</li>
           <li>Led the <strong>API type-layer migration</strong> out of the shared library, with hand-written types verified against live Swagger specs; centralised routing behind <strong>typed route builders</strong>.</li>
+          <li>Built <strong>Slack Workflow Builder</strong> automations that post templated team messages from a one-click shortcut, replacing hand-written routine updates.</li>
           <li>Designed the table system's <strong>navigable row/cell links</strong> as real anchors, so middle-click, new-tab and keyboard navigation all work.</li>
           <li>Highest-volume contributor to the monorepo: <strong>16,900+ small, atomic commits</strong> over four years, sustaining five apps without a separate front-end team.</li>
         </ul>
@@ -145,11 +147,13 @@
       <h2 class="section-title">Personal Projects</h2>
       <div class="job">
         <div class="job-header"><span class="job-title">Locus Meus — Mobile-First Gallery Platform <em>(2026 – present)</em></span></div>
-        <div class="job-meta"><strong>Sole engineer &amp; architect</strong> · React 19 · TypeScript · Vite · Tailwind · Zustand</div>
+        <div class="job-meta"><strong>Sole engineer &amp; architect</strong> · React 19 · TypeScript · Vite · Tailwind · Zustand · GitHub Actions</div>
         <div class="job-context"><a href="https://github.com/Locus-Meus/Locus-Front">github.com/Locus-Meus/Locus-Front</a> · <a href="https://github.com/Locus-Meus/Locus-Admin-FE">github.com/Locus-Meus/Locus-Admin-FE</a> <em>(public)</em></div>
       <p class="job-context">Solo two-app product (end-user PWA + admin console) on a Java/Spring backend.</p>
         <ul>
           <li>Implemented <strong>OAuth2 Authorization Code + PKCE</strong> end to end — S256 challenge, CSRF state validation, silent iframe re-authentication, redirect restoration — with no client secret in the SPA.</li>
+          <li>Automated the project's delivery communication: a <strong>GitHub Actions</strong> workflow posts every new pull request (repo, title, link, author) to a Telegram topic via the Bot API.</li>
+          <li>Set up a scheduled <strong>Jira → Telegram</strong> digest that sends the current task list with direct issue links.</li>
           <li>Built on <strong>Feature-Sliced Design</strong>; shipped as an installable <strong>PWA</strong> with 3-language i18n and its own <em>AGENTS.md</em> agent knowledge base.</li>
         </ul>
       </div>

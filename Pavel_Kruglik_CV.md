@@ -31,6 +31,8 @@ Seeking B2B engagements that value React/TypeScript architecture and practical A
 
 **UI & Architecture** — Tailwind, Radix/shadcn, Styled Components, MUI, Storybook, Feature-Sliced Design, OAuth2/OIDC + PKCE, accessible (WCAG-minded) components
 
+**DevOps & Team Automation** — GitHub Actions (CI workflows, event triggers, secrets), Telegram Bot API, Slack Workflow Builder, Jira integrations, scheduled jobs, Bash/curl scripting
+
 **Quality** — Jest, Vitest, React Testing Library, Mock Service Worker, Cypress, ESLint, Sentry, TS compiler performance profiling
 
 **Payments** — Stripe, Plaid (bank linking & reconciliation), chargebacks/refunds/NSF, ACH & card flows, tokenised payment links
@@ -65,6 +67,7 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 - Re-architected the **global sidebar system** into a provider-based state model, removing a last-writer-wins bug class at the hook level.
 - Delivered the **owners & distributions module** end to end: breakdowns, payment runs, audit logging and soundex search.
 - Led the **API type-layer migration** out of the shared library, with hand-written types verified against live Swagger specs; centralised routing behind **typed route builders**.
+- Built **Slack Workflow Builder** automations that post templated team messages from a one-click shortcut, replacing hand-written routine updates.
 - Designed the table system's **navigable row/cell links** as real anchors, so middle-click, new-tab and keyboard navigation all work.
 - Highest-volume contributor to the monorepo: **16,900+ small, atomic commits** over four years, sustaining five apps without a separate front-end team.
 
@@ -92,12 +95,14 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 ## Personal Projects
 
 ### Locus Meus — Mobile-First Gallery Platform *(2026 – present)*
-**Sole engineer & architect** · React 19 · TypeScript · Vite · Tailwind · Zustand
+**Sole engineer & architect** · React 19 · TypeScript · Vite · Tailwind · Zustand · GitHub Actions
 **github.com/Locus-Meus/Locus-Front** · **github.com/Locus-Meus/Locus-Admin-FE** *(public)*
 
 Solo two-app product (end-user PWA + admin console) on a Java/Spring backend.
 
 - Implemented **OAuth2 Authorization Code + PKCE** end to end — S256 challenge, CSRF state validation, silent iframe re-authentication, redirect restoration — with no client secret in the SPA.
+- Automated the project's delivery communication: a **GitHub Actions** workflow posts every new pull request (repo, title, link, author) to a Telegram topic via the Bot API.
+- Set up a scheduled **Jira → Telegram** digest that sends the current task list with direct issue links.
 - Built on **Feature-Sliced Design**; shipped as an installable **PWA** with 3-language i18n and its own `AGENTS.md` agent knowledge base.
 
 ---
