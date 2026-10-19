@@ -11,7 +11,7 @@ GitHub: https://github.com/pavel-kru
 
 ## Summary
 
-Senior front-end engineer with 6+ years building enterprise platforms in React and TypeScript. Since 2022, principal front-end engineer on a property-management and accounting suite of five production apps in an ~11,300-file NX monorepo. Cut the suite's full TypeScript type-check from **426 s to 41.8 s (10×)**, and since Sep 2026 have architected and led the front end of a legacy ASP.NET WebForms → React modernization.
+Senior front-end engineer with 6+ years building enterprise platforms in React and TypeScript. Since 2022, principal front-end engineer on a property-management and accounting suite of five production apps in an ~11,300-file NX monorepo. Cut the suite's full TypeScript type-check from **426 s to 41.8 s (10×)**, and since Sep 2026 have architected and led the front end of a legacy ASP.NET WebForms → React modernization, including the generated OpenAPI contract its types come from.
 
 Also the team's AI engineering lead: built the agent knowledge base, workflow skills and guardrail hooks that let LLM coding agents (Claude Code primarily) work reliably inside the codebase.
 
@@ -21,19 +21,21 @@ Seeking B2B engagements that value React/TypeScript architecture and practical A
 
 ## Core Skills
 
-**Languages & Runtime** — TypeScript (strict), JavaScript (ES2023+), Node.js, HTML5, CSS3, OData
+**Languages & Runtime** — TypeScript (strict), JavaScript (ES2023+), Node.js, HTML5, CSS3, OData; working C# (ASP.NET 8) and Java (Spring Boot) for API-contract tooling and tests
 
 **Front-End** — React 19, React Router 7, TanStack Query, Redux/Redux-Saga, Zustand, Next.js (SSR/SSG), Single-SPA microfrontends, Stencil.js, PWAs
 
 **Node.js & Build Tooling** — Node.js CLI/build scripts, NX, Vite, Webpack, Babel/SWC, Yarn workspaces, npm package publishing, Husky + lint-staged
 
+**API Contracts** — OpenAPI 3 / Swagger, contract-first type generation (openapi-typescript), Swashbuckle, springdoc, discriminated-union (oneOf) schemas, spec-drift tests
+
 **AI / LLM Engineering** — Claude Code (primary), Claude API, OpenAI Codex, Cursor, Warp; agent skill authoring, context engineering, agentic knowledge bases, MCP integration, LangGraph orchestration, guardrail hooks
 
-**UI & Architecture** — Tailwind, Radix/shadcn, Styled Components, MUI, Storybook, Feature-Sliced Design, OAuth2/OIDC + PKCE, accessible (WCAG-minded) components
+**UI & Architecture** — Tailwind, Radix/shadcn, Styled Components, MUI, Storybook, Penpot, Feature-Sliced Design, OAuth2/OIDC + PKCE, accessible (WCAG-minded) components
 
-**DevOps & Team Automation** — GitHub Actions (CI workflows, event triggers, secrets), Telegram Bot API, Slack Workflow Builder, Jira/Confluence integrations, scheduled jobs, Bash/curl scripting
+**DevOps & Team Automation** — GitHub Actions (CI workflows, event triggers, secrets), Docker Compose, Envoy, nginx, Telegram Bot API, Slack Workflow Builder, Jira/Confluence integrations, scheduled jobs, Bash/curl scripting
 
-**Quality** — Jest, Vitest, React Testing Library, Mock Service Worker, Cypress, ESLint, Sentry, TS compiler performance profiling
+**Quality** — Jest, Vitest, React Testing Library, Mock Service Worker, Playwright, Cypress, ESLint (custom rules), Sentry, TS compiler performance profiling
 
 **Payments** — Stripe, Plaid (bank linking & reconciliation), chargebacks/refunds/NSF, ACH & card flows, tokenised payment links
 
@@ -47,7 +49,8 @@ Seeking B2B engagements that value React/TypeScript architecture and practical A
 - **Ownership of AI tooling:** wrote 43 of the 50 commits to the repo's AI-tooling directories; reused the same knowledge-base pattern in a personal project (`AGENTS.md`).
 - **Workflow skills:** designed 4 end-to-end agent skills (~1,100 lines) for adding a feature, building an OData report and wiring a company setting, replacing multi-day onboarding with one prompt.
 - **Guardrail hooks:** wrote Bash hooks that block malformed commit trailers and prevent a session ending with unsynced shared knowledge.
-- **Multi-agent tooling:** built a Claude-to-DeerFlow (LangGraph) bridge for delegated research, and integrated MCP servers (Figma, Jira, Sentry, Swagger, Slack) into daily development.
+- **Multi-agent tooling:** built a Claude-to-DeerFlow (LangGraph) bridge for delegated research, and integrated MCP servers (Figma, Penpot, Jira, Sentry, Swagger, Slack) into daily development.
+- **Agent pipeline:** co-designed an 11-agent, Jira-driven migration pipeline (docs → spec → QA → dev → review), owning the front-end build and review skills and the API-contract rules every dev and review agent follows.
 - **Parallel sessions:** defined the coordination protocol for running several agent sessions safely on one working tree. Every agent change is human-reviewed and checked against the type-checker and live API specs.
 
 ---
@@ -74,9 +77,11 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 **Legacy modernization (Sep 2026 – present)** — front-end architect and lead for a legacy ASP.NET WebForms → React rewrite of a second product.
 
 - **Architected the new React SPA** (React 19, Vite, TanStack Query) on Feature-Sliced Design, with layer and slice-isolation rules enforced by `eslint-plugin-boundaries` and an architecture guide written for engineers and coding agents.
-- Designed its building blocks: a report registry, TanStack Query query factories, Mock Service Worker mocks kept out of the production bundle, and an in-house design system of 20+ accessible components.
-- Delivered the **proof of concept that secured approval for the full migration**: reports at legacy parity against an ASP.NET 8 Swagger contract, deployed as an IIS sub-application beside the live legacy site.
-- Wrote the front-end build and review skills for the team's agent-driven, spec-first migration pipeline.
+- Designed its building blocks: a report registry, TanStack Query query factories, Mock Service Worker mocks kept out of the production bundle, and an in-house design system of 25+ accessible components.
+- Delivered the **proof of concept that secured approval for the full migration**: 9 report screens plus report packages at legacy parity, deployed as an IIS sub-application beside the live legacy site.
+- Introduced a **generated OpenAPI contract** between the ASP.NET 8 API and the SPA: upgraded Swashbuckle 6 → 10 with schema filters for nullability, required fields and polymorphic row unions, plus tests that fail `dotnet test` on a stale or non-conforming spec. The front end now generates its types with `openapi-typescript`, replacing a 9,400-line vendored Swagger file and hand-written models.
+- Rebuilt the legacy controls in React (searchable select, calendar date input with legacy date parsing, switch fields, dual list box) so each screen matches WebForms control for control.
+- Wrote a **custom ESLint rule** that forces every `data-testid` to be a static literal (118 files migrated), so one Playwright suite drives the legacy and new UIs side by side.
 
 ### Software Developer — Administrative Tools & Tenant Portal
 **Independent B2B Contractor (via Symfony Art) · Jun 2022 – Aug 2022 · Remote**
@@ -96,15 +101,17 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 ## Personal Projects
 
 ### Locus Meus — Mobile-First Gallery Platform *(2026 – present)*
-**Sole engineer & architect** · React 19 · TypeScript · Vite · Tailwind · Zustand · GitHub Actions
+**Front-end lead & architect** · team of 3 · React 19 · TypeScript · Vite · Tailwind · Zustand · Docker · Envoy
 **github.com/Locus-Meus/Locus-Front** · **github.com/Locus-Meus/Locus-Admin-FE** *(public)*
 
-Solo two-app product (end-user PWA + admin console) on a Java/Spring backend.
+Two-app product (end-user PWA + admin console) on a Java/Spring backend. I own both front ends, the cross-repo contracts and the edge infrastructure.
 
 - Implemented **OAuth2 Authorization Code + PKCE** end to end — S256 challenge, CSRF state validation, silent iframe re-authentication, redirect restoration — with no client secret in the SPA.
-- Built a **GitHub Actions → Telegram** pull-request notification workflow that delivers the repository, title, link, and author to a dedicated topic via the Bot API.
-- Implemented a scheduled **Jira → Telegram** task digest with current work items and direct issue links.
-- Built on **Feature-Sliced Design**; shipped as an installable **PWA** with 3-language i18n and its own `AGENTS.md` agent knowledge base.
+- Made the API types **contract-first across three repos**: a springdoc test fails the Spring build when the committed `openapi.json` drifts, both fronts generate their types from it, and a `/sync-api` agent skill regenerates the spec and both fronts' types, then fixes what `tsc` reports.
+- Put an **Envoy edge proxy** in front of the PWA and Spring (Docker Compose dev and full-stack profiles): one public origin, so no CORS and OAuth redirects stay same-origin; a validation script checks config, routing and the PKCE sign-in.
+- Set up a **shared knowledge base** for developers and agents (Claude Code, Codex, Qwen): API, auth and error contracts, a system map and ADRs, loaded through every repo's `AGENTS.md`.
+- Built on **Feature-Sliced Design** (a 162-file refactor onto the same conventions as the modernization SPA); installable **PWA** prepared for app-store publishing, with an offline fallback, a desktop layout and 3-language i18n.
+- Automated delivery with **GitHub Actions → Telegram** pull-request notifications and a scheduled **Jira → Telegram** task digest via the Bot API.
 
 ---
 
