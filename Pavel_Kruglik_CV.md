@@ -102,7 +102,7 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 
 ### Locus Meus — Mobile-First Gallery Platform *(2026 – present)*
 **Front-end lead & architect** · team of 3 · React 19 · TypeScript · Vite · Tailwind · Zustand · Docker · Envoy
-**github.com/Locus-Meus/Locus-Front** · **github.com/Locus-Meus/Locus-Admin-FE** *(public)*
+Repos: Locus-Front, Locus-Admin-FE *(private; code walkthrough on request)*
 
 Two-app product (end-user PWA + admin console) on a Java/Spring backend. I own both front ends, the cross-repo contracts and the edge infrastructure.
 
