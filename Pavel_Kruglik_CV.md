@@ -33,7 +33,7 @@ Seeking B2B engagements that value React/TypeScript architecture and practical A
 
 **UI & Architecture** — Tailwind, Radix/shadcn, Styled Components, MUI, Storybook, Penpot, Feature-Sliced Design, OAuth2/OIDC + PKCE, accessible (WCAG-minded) components
 
-**DevOps & Team Automation** — GitHub Actions (CI workflows, event triggers, secrets), Docker Compose, Envoy, nginx, Telegram Bot API, Slack Workflow Builder, Jira/Confluence integrations, scheduled jobs, Bash/curl scripting
+**DevOps & Team Automation** — GitHub Actions (CI workflows, cross-repo `repository_dispatch` triggers, GitHub App tokens, secrets), Docker Compose, Envoy, nginx, Telegram Bot API, Slack Workflow Builder, Jira/Confluence integrations, scheduled jobs, Bash/curl scripting
 
 **Quality** — Jest, Vitest, React Testing Library, Mock Service Worker, Playwright, Cypress, ESLint (custom rules), Sentry, TS compiler performance profiling
 
@@ -107,7 +107,8 @@ Principal front-end engineer on a multi-tenant SaaS suite — five production Re
 Two-app product (end-user PWA + admin console) on a Java/Spring backend. I own both front ends, the cross-repo contracts and the edge infrastructure.
 
 - Implemented **OAuth2 Authorization Code + PKCE** end to end — S256 challenge, CSRF state validation, silent iframe re-authentication, redirect restoration — with no client secret in the SPA.
-- Made the API types **contract-first across three repos**: a springdoc test fails the Spring build when the committed `openapi.json` drifts, both fronts generate their types from it, and a `/sync-api` agent skill regenerates the spec and both fronts' types, then fixes what `tsc` reports.
+- Made the API types **contract-first across three repos**: a springdoc test fails the Spring build when the committed `openapi.json` drifts, both fronts generate their types from it, and a `/sync-api` agent skill regenerates the spec and both fronts' types, then fixes what `tsc` reports. The first generated types exposed two bugs the hand-written models had hidden: a 204 response read as a body, and UUIDs typed as numbers.
+- Automated the **contract sync with GitHub Actions**: when the spec changes on the backend's main branch, a GitHub App–authenticated cross-repo dispatch opens a type-regeneration PR in each front within about a minute. If the new types break a build, the PR opens as a draft with the `tsc` errors and the front team gets a Telegram alert, skipped when main was already broken so alerts fire only for real API breaks.
 - Put an **Envoy edge proxy** in front of the PWA and Spring (Docker Compose dev and full-stack profiles): one public origin, so no CORS and OAuth redirects stay same-origin; a validation script checks config, routing and the PKCE sign-in.
 - Set up a **shared knowledge base** for developers and agents (Claude Code, Codex, Qwen): API, auth and error contracts, a system map and ADRs, loaded through every repo's `AGENTS.md`.
 - Built on **Feature-Sliced Design** (a 162-file refactor onto the same conventions as the modernization SPA); installable **PWA** prepared for app-store publishing, with an offline fallback, a desktop layout and 3-language i18n.
