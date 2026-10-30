@@ -13,7 +13,7 @@ GitHub: https://github.com/pavel-kru
 
 Senior front-end engineer with 6+ years building enterprise platforms in React and TypeScript. Since 2022, principal front-end engineer on a property-management and accounting suite of five production apps in an ~11,300-file NX monorepo. Cut the suite's full TypeScript type-check from **426 s to 41.8 s (10×)**, and since Sep 2026 have architected and led the front end of a legacy ASP.NET WebForms → React modernization, including the generated OpenAPI contract its types come from.
 
-Also the team's AI engineering lead: built the agent knowledge base, workflow skills and guardrail hooks that let LLM coding agents (Claude Code primarily) work reliably inside the codebase.
+Also the team's AI engineering lead: built the agent knowledge base, workflow skills and guardrail hooks that let LLM coding agents (Claude Code primarily) work reliably inside the codebase, and publishes an open-source library of verified agent-engineering patterns.
 
 Seeking B2B engagements that value React/TypeScript architecture and practical AI/LLM engineering.
 
@@ -52,6 +52,7 @@ Seeking B2B engagements that value React/TypeScript architecture and practical A
 - **Multi-agent tooling:** built a Claude-to-DeerFlow (LangGraph) bridge for delegated research, and integrated MCP servers (Figma, Penpot, Jira, Sentry, Swagger, Slack) into daily development.
 - **Agent pipeline:** co-designed an 11-agent, Jira-driven migration pipeline (docs → spec → QA → dev → review), owning the front-end build and review skills and the API-contract rules every dev and review agent follows.
 - **Parallel sessions:** defined the coordination protocol for running several agent sessions safely on one working tree. Every agent change is human-reviewed and checked against the type-checker and live API specs.
+- **Open-source pattern library for AI coding agents** (github.com/pavel-kru/patterns): 16 verified patterns for Claude Code and React/TypeScript front ends, each claim labelled by its evidence; an automated checker detects when the cited vendor docs change and blocks a pattern until it is re-verified.
 
 ---
 
